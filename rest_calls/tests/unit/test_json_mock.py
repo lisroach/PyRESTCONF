@@ -47,7 +47,7 @@ class JSONRestCallsCase(unittest.TestCase):
     @mock.patch('requests.sessions.Session.get')
     def test_get(self, mock_get):
         self.classObject.get(endpoint)
-        mock_get.assert_called_once_with(url, params={})
+        mock_get.assert_called_once_with(url, params={'content': 'config'})
 
     @mock.patch('requests.sessions.Session.put')
     def test_put(self, mock_put):

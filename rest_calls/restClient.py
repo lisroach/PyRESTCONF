@@ -73,7 +73,7 @@ class RestCalls(object):
         res = self._session.patch(url, data=data)
         return res
 
-    def get(self, endpoint, **kwargs):
+    def get(self, endpoint='', **kwargs):
         """GET RESTconf call
             :param endpoint: String selection of YANG model and container
             :type endpoint: str
@@ -81,6 +81,8 @@ class RestCalls(object):
             :rtype: Response object
         """
         url = self._host + endpoint
+        if 'content' not in kwargs:
+            kwargs = {'content': 'config'}
         res = self._session.get(url, params=kwargs)
         return res
 

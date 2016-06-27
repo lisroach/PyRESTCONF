@@ -79,6 +79,13 @@ class RestCalls(object):
             :type endpoint: str
             :return: Return the response object
             :rtype: Response object
+
+            kwargs would be the type of content. See the ietf's restconf
+            draft section 4.8.1 (expires October 2016). Options:
+
+            config -- Return only configuration descendant data nodes
+            nonconfig -- Return only non-configuration descendant data nodes
+            all -- Return all descendant data nodes
         """
         url = self._host + endpoint
         if 'content' not in kwargs:
